@@ -1,0 +1,45 @@
+.texto_principal{
+  margin: 20px;
+  color: white;
+}
+
+
+
+
+/*
+.timon{
+  display: block;
+  margin: auto;
+  margin-top: 150px;
+  width: 350px;
+}
+
+.timon:hover {
+  -webkit-animation: timon 2.5s linear infinite both;
+  animation: timon 2.5s linear infinite both
+}
+
+@-webkit-keyframes timon {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes timon {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+*/
