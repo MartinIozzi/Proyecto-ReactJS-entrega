@@ -1,24 +1,26 @@
 import './App.css';
-import './componentes/header/Navbar.css'
+import './componentes/header/Navbar.css';
 import Navbar from './componentes/header/Navbar';
-import ItemListContainer from './componentes/ItemListContainer';
-
-
-/*import Body from './componentes/body/Body'; (lo utilizo en otra entrega)*/
+import ItemListContainer from './containers/ItemListContainer';
+import Item from './containers/Item';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   
   const userName = 'Martin';
-  const greeting = 'Nuevos productos a su disposición';
-  const cuenta = 0;
-  
+  const greeting = 'Novedades';
   
   return (
-    <>
-    <Navbar name={userName} carro={cuenta} />
-    <ItemListContainer greeting={greeting} />
-    </>
+    <BrowserRouter>
+
+    <Navbar name={userName} />
+
+    <Routes>
+      <Route path='/' element={<ItemListContainer greeting={greeting} />} />
+    </Routes>
+    
+    </BrowserRouter>
   );
   
 }

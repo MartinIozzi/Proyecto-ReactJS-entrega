@@ -18,21 +18,16 @@
 }
 
 .nav_categories{
-    padding-left: 100px;
     margin-top: 30px;
-    color: black;
-    font-size: 30px;
-    text-decoration: none;
 }
 
 .contenedor_carrito{
     display: flex;
-    width: 300px;
+    width: 150px;
+    margin-top: 30px;
+    text-decoration: none;
     justify-content: center;
     align-self: center;
-}
-
-.carrito{
     color: rgb(6, 175, 0);
 }
 
@@ -42,28 +37,38 @@
     color: white;
 }
 
-.boton_productos{
-    font-size: 30px;
-    margin-top: 25px;
-    margin-left: 150px;
-}
-
-.productos_drop{
-    background-color: rgb(0, 139, 253);
-}
 
 .saludo{
     font-size: 20px;
     display: flex;
-    margin-right: 30px;
-    margin-left: 10px;
+    width: 200px;
+    margin-left: 20px;
 }
 
 .contenedor_cuenta{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .boton{
     background-color: red;
 }
 
+.color {
+    color: red;
+}
+
+.boton1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: red;
+}
+
+.boton2{
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: rgb(22, 255, 22);
+}

@@ -12,11 +12,12 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PUBLIC_URL=http://localhost/&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +39,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint-plugin-react": "^7.32.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinIozzi/Proyecto-ReactJS-entrega1-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinIozzi/Proyecto-ReactJS-entrega1-/issues"
+  },
+  "homepage": "https://github.com/MartinIozzi/Proyecto-ReactJS-entrega1-#readme"
 }
