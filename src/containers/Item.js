@@ -6,37 +6,29 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import {Link} from 'react-router-dom'
 
-const Item = ({productos}) => {
+const Item = ({product}) => {
   return (
     <>
-    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+    <Link to={`/productos/${product.id}`} style={styles.link}>
+    <Card sx={{ maxWidth: 345}} style={styles.container}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image=""
+          image={product.img}
           alt=""
         />
-        <CardContent style={styles.texto}>
+        <CardContent >
           <Typography gutterBottom variant="h5" component="div">
-            Aros de Roronoa Zoro
+          {product.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Tipo de aro: Colgante
-            <br></br>
-            Estilos: Colgante
-            <br></br>
-            Largo x Ancho: 5 cm x 3 cm
-            <br></br>
-            Diámetro: 3 mm
-            <br></br>
-            Con piedra: No
-            <br></br>
-            Precio: $1200
+          ${product.price}
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
+    </Link>
 </>
   );
 
@@ -49,9 +41,12 @@ const styles = {
         flexDirection: "column",
         justifyContent: "center",
         margin: 50,
+        backgroundColor: "rgb(226, 121, 0)",
+
     },
-    texto: {
-        margin: 20,
+    link: {
+      width: 345,
+      textDecoration: 'none'
     }
 }
   

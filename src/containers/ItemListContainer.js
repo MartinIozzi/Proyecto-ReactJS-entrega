@@ -1,48 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-/*import Promesa from './Promesa';*/
+import { getProducts } from './Promesa';
 import { useParams } from "react-router-dom";
 
 
 
 const ItemListContainer = ({ greeting }) => {
 
-    const [products, setProducts] = useState([]);
-    const [error, setError] = useState(false);
-    const { name } = useParams();
-    const URL = `./Promesa`;
-    
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(false);
+  const { name } = useParams();
+  const URL = `./Promesa`;
 
-    useEffect(() => {
-    const getProducts = async () => {
-        try {
-          const res = await fetch(URL);
-          const data = await res.json();
-          setProducts(data);
-        } catch {
-          setError(true);
-        }
-      };
-  
-      getProducts();
-    }, );
+  useEffect(() => {
+    getProducts().then(Item => {
+      setProducts(Item)
+    }).catch(err => {
+      setError(false)
+      console.log(err)
+    })
+  }, [])
 
-    return (
-        <>            
-        <h1 className='texto_principal'>{greeting}</h1>
-        {!error ? (
+  return (
+    <>
+      {!error ? (
         <>
           {products.length ? (
             <ItemList products={products} />
           ) : (
-            <h1>Cargando...</h1>
+            <>
+            <img className='timon' src='../../timon.png'></img>
+            </>
           )}
         </>
       ) : (
-        <h1></h1>
+        <h1>Error de carga</h1>
       )}
-        </>
-    )
+    </>
+  )
 }
 
 export default ItemListContainer;
