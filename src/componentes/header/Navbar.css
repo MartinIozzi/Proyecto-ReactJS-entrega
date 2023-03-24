@@ -3,7 +3,7 @@
     background-color: rgb(253, 122, 0);
     height: 115px;
 }
-  
+
 .logo {
     display: flex;
     padding-left: 20px;
@@ -25,7 +25,6 @@
     display: flex;
     width: 150px;
     margin-top: 30px;
-    text-decoration: none;
     justify-content: center;
     align-self: center;
     color:rgb(6, 175, 0);
@@ -34,7 +33,7 @@
 .numero{
     font-size: 28px;
     align-self: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 

@@ -1,23 +1,46 @@
-import React from "react";
-import Item from "./Item";
+import React, {useState, useContext} from 'react'
+import ItemCount from "../componentes/ItemCount"
+import { CustomContext } from '../CustomContext'
+import { Link } from 'react-router-dom'
+
 
 const ItemDetail = ({ product }) => {
-    return (
-      <div>
-        {Item}
-      </div>
-    );
-  };
+    const [clickearBoton, setClickearBoton] = useState(false);
+    const {addProduct} = useContext(CustomContext)
 
-export default ItemDetail;
+    const onAdd = (count) => {
+      setClickearBoton(true)
+      addProduct(product, count)
+    }
+  
+  return (
+  <>
+    <div className='container'>
+      <div>
+      <h1 className='data1'>{product.name}</h1>
+        <img style={styles.img} src={product.img} alt={product.name}></img>
+      </div>
+      <div className='data'>
+      <h2>Envio a todo el país</h2>
+      <p>Stock Disponible: {product.stock} productos</p>
+      <p>Precio: ${product.price}</p>
+      {clickearBoton ? (
+          <Link to="/cart">
+          </Link>
+        ) : (
+          <ItemCount onAdd={onAdd} />
+        )}
+      </div>
+    </div>
+  </>
+  )
+}
 
 const styles = {
-    container: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    image: {
-      width: "20%",
-    },
-  };
+  img: {
+    width: 450,
+  }
+}
+
+export default ItemDetail
+

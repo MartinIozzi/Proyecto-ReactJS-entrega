@@ -6,17 +6,18 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import {Link} from 'react-router-dom'
 
+//es donde se pone el contenedor de los productos seleccionados en mi ecommerce
 const Item = ({product}) => {
   return (
     <>
-    <Link to={`/productos/${product.id}`} style={styles.link}>
+    <Link to={`/productos/${product.id}`} style={styles.link}>   
     <Card sx={{ maxWidth: 345}} style={styles.container}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
           image={product.img}
-          alt=""
+          alt={product.name}
         />
         <CardContent >
           <Typography gutterBottom variant="h5" component="div">
@@ -29,7 +30,7 @@ const Item = ({product}) => {
       </CardActionArea>
     </Card>
     </Link>
-</>
+    </>
   );
 
 }
@@ -41,6 +42,7 @@ const styles = {
         flexDirection: "column",
         justifyContent: "center",
         margin: 50,
+        marginLeft: 10,
         backgroundColor: "rgb(226, 121, 0)",
 
     },

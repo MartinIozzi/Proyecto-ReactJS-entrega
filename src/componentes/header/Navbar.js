@@ -1,10 +1,10 @@
 import React from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import CartWidget from '../../containers/CartWidget';
+import CartWidget from './CartWidget';
 import NavCategories from './NavCategories';
 import {Link} from "react-router-dom";
 
-const Navbar = ({ name , carro }) => {
+const Navbar = ({ name }) => {
 
     return (
         <header>
@@ -16,7 +16,7 @@ const Navbar = ({ name , carro }) => {
                 </div>
 
                 
-                <Link to={'/cart'}><CartWidget cuenta={carro} /></Link>
+                <Link to={'/cart'}><CartWidget/></Link>
                 
                 
 

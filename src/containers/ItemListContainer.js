@@ -1,43 +1,55 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import { getProducts } from './Promesa';
-import { useParams } from "react-router-dom";
+import {db} from '.././firebase/firebase';
+import {getDocs, collection, query, where} from 'firebase/firestore'
 
 
+//en caso de error mostraría lo que sería la pantalla de carga a suceder
 
-const ItemListContainer = ({ greeting }) => {
-
+const ItemListContainer = ({greeting}) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
-  const { name } = useParams();
-  const URL = `./Promesa`;
+  const {name} = useParams();
+  
 
   useEffect(() => {
+    const productsCollection = collection(db, 'productos');
+
+    getDocs (productsCollection).then(
+    (data)=>{
+
+    }
+    )
+
+
+
+
+/*
     getProducts().then(Item => {
       setProducts(Item)
-    }).catch(err => {
+    }).catch( err => {
       setError(false)
-      console.log(err)
-    })
+    })*/
   }, [])
 
   return (
     <>
-      {!error ? (
-        <>
-          {products.length ? (
-            <ItemList products={products} />
-          ) : (
-            <>
-            <img className='timon' src='../../timon.png'></img>
-            </>
-          )}
-        </>
-      ) : (
-        <h1>Error de carga</h1>
-      )}
+    <div style={styles.font}>
+    {greeting} 
+    </div>
+      <ItemList products={products} />
     </>
   )
+}
+
+const styles = {
+  font: {
+    fontSize: 40,
+    marginLeft: 60,
+    
+    }
 }
 
 export default ItemListContainer;

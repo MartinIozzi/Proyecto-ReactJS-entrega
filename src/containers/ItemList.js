@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
+//caracteristicas del producto, en la pantalla principal
 const ItemList = ({products}) => {
     return (
         <div style={styles.container}>

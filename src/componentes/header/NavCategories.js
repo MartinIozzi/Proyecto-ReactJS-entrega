@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const NavCategories = () => {
     const categories = [
@@ -10,17 +10,19 @@ const NavCategories = () => {
     ]
 
     return (
+        <>
         <nav>
             {
                 (categories.map((category) =>{
                     return(
-                        <Link key={category.id} style={styles.categories} to={category.route}>
+                        <NavLink key={category.id} style={styles.categories} to={category.route}>
                             {category.name}
-                        </Link>
+                        </NavLink>
                     );
                 }))
             }
         </nav>
+          </>
     )
 }
 
