@@ -5,6 +5,8 @@
 
 Link de la pagina: https://onepieceshop.netlify.app/
 
+### Datos
+Para este proyecto usé la libreria externa de sweetalert2 para poder poner estilos a la hora de confirmar una compra
 
 ### Consigna
 
