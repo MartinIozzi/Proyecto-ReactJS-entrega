@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import { getProducts } from './Promesa';
 import {db} from '.././firebase/firebase';
 import {getDocs, collection, query, where} from 'firebase/firestore'
 
@@ -13,26 +12,32 @@ const ItemListContainer = ({greeting}) => {
   const [error, setError] = useState(false);
   const {name} = useParams();
   
-
+  
   useEffect(() => {
     const productsCollection = collection(db, 'productos');
+    const productList = name
+     ? query(productsCollection, where('category','==', name))
+     : productsCollection
 
-    getDocs (productsCollection).then(
-    (data)=>{
-
+    getDocs (productList)
+    .then((data)=>{
+      const list = data.docs.map ((product) => {
+        return {
+          ...product.data(),
+          id: product.id,
+        }
+      });
+      setProducts(list)(data.filter(product => product.category == name));
     }
-    )
-
-
-
-
-/*
-    getProducts().then(Item => {
-      setProducts(Item)
-    }).catch( err => {
-      setError(false)
-    })*/
+    ).catch(() => {setError(true)})
   }, [])
+  /*
+  getProducts().then(Item => {
+    setProducts(Item)
+  }).catch( err => {
+    setError(false)
+  })
+  */
 
   return (
     <>
@@ -48,7 +53,6 @@ const styles = {
   font: {
     fontSize: 40,
     marginLeft: 60,
-    
     }
 }
 

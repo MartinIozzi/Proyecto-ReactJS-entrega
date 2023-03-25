@@ -14,11 +14,8 @@ const Navbar = ({ name }) => {
                 <div className='nav_categories'>
                 <NavCategories/>
                 </div>
-
-                
+  
                 <Link to={'/cart'}><CartWidget/></Link>
-                
-                
 
                 <div>
                     <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">

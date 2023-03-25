@@ -1,7 +1,8 @@
 import React, { useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { initialProducts } from "./Promesa";
+import {db} from '.././firebase/firebase';
+import {doc, getDoc, collection} from 'firebase/firestore'
 
 const ItemDetailContainer = ( ) => {
   const [product, setProduct] = useState([]);
@@ -9,21 +10,24 @@ const ItemDetailContainer = ( ) => {
   const {id} = useParams ()
 
   
-  useEffect(() => { //uso el useeffect para llamar a la promesa que trae los productos y los filtra
-    getDetailPromise.then(data => {
-      setProduct(data) //llamo a la promesa con un .then
-      setLoading(false)
-    })
-    .catch(err =>   console.log(err) )
-    
-},[]) //el array de dependencias vacio indica que el useeffect se debe ejecutar una sola vez cuando carga el componente
+  useEffect(() => {
+    setTimeout(() =>{
+      const productsCollection = collection(db,'productos');
+      const refDoc = doc(productsCollection,id)
+      getDoc(refDoc).then(
+        (data)=>{
+          setProduct({
+            id:data.id,
+            ...data.data(),
+          });
+        }
+      )
+      .finally(()=>{ 
+        setLoading(false);
+      })
+  },[1000])
 
-const getDetailPromise = new Promise((res) => { //creo promesa para pedir los productos y filtrarlos
-    setTimeout(() => {
-      const productoFiltrado = initialProducts.find(e => e.id == id) //filtro los productos con find, buscando por el id de los params
-      res(productoFiltrado) //la promesa resuelve el producto filtrado con un timeout de 2 segundos
-    }, (1000));
-})
+    })
 
   return (
     <>

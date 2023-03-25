@@ -23,6 +23,9 @@ function App() {
         <Route path='/'
           element={<ItemListContainer greeting={greeting} />} />
 
+        <Route path='/category/:name'
+        element={<ItemListContainer greeting={greeting}/>}/>
+
         <Route
           path="/productos/:id" //lo que va despues de los : son params (en este caso el params es el id)
           element={<ItemDetailContainer />}

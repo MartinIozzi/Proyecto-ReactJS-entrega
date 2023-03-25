@@ -1,12 +1,12 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const NavCategories = () => {
+const  NavCategories = () => {
     const categories = [
-        {id: 1, name:"Collares", route: "categories/collares"},
-        {id: 2, name:"Aritos", route: "categories/aritos"},
-        {id: 3, name:"Posters", route: "categories/posters"},
-        {id: 4, name:"Figuras", route: "categories/figuras"},
+        {id: 1, name:"Collares", route: "/category/Collares"},
+        {id: 2, name:"Aritos", route: "/category/Aritos"},
+        {id: 3, name:"Posters", route: "/category/Posters"},
+        {id: 4, name:"Figuras", route: "/category/Figuras"},
     ]
 
     return (
@@ -15,9 +15,9 @@ const NavCategories = () => {
             {
                 (categories.map((category) =>{
                     return(
-                        <NavLink key={category.id} style={styles.categories} to={category.route}>
+                        <Link key={category.id} style={styles.categories} to={category.route}>
                             {category.name}
-                        </NavLink>
+                        </Link>
                     );
                 }))
             }
