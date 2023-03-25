@@ -1,10 +1,13 @@
-# A continuación se encuentran los datos de la pagina creada...
+# Entrega final de Proyecto e-commerce de ReactJS
+
+
+## A continuación se encuentran los datos de la pagina creada...
 
 Link de la pagina: https://onepieceshop.netlify.app/
 
 
+### Consigna
 
-## Entrega final de Proyecto e-commerce de ReactJS
 * Deberás desarrollar la navegabilidad básica de la aplicación, demostrando que la app permite ver el catálogo, y navegar a un detalle.
 
 * Configura en App.js el routing usando un BrowserRouter de tu aplicación con react-router-dom
@@ -22,7 +25,7 @@ Link de la pagina: https://onepieceshop.netlify.app/
     - ‘/category/:id’
     - ‘/item/:id’ navega a
 
-    
+
 * Links a configurar
 
 - Clickear en el brand debe navegar a ‘/’
