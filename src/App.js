@@ -5,7 +5,7 @@ import ItemListContainer from './containers/ItemListContainer';
 import ItemDetailContainer from './containers/ItemDetailContainer'
 import Cart from './containers/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CustomProvider } from './CustomContext';
+import { CustomProvider } from './context/CustomContext';
 
 
 

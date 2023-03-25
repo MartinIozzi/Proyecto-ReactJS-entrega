@@ -33,9 +33,7 @@ const ItemCount = ({onAdd, stock = 10}) => {
           +{" "}
         </button>
         </div>
-        <button className="boton-carrito" /*onClick={() => onAdd(count)}*/>Agregar al carrito</button>
-        <br></br>
-        <button className="boton-fin-compra">Finalizar Compra</button>
+        <button className="boton-carrito" onClick={() => onAdd(count)}>Agregar al carrito</button>
       </div>
     </>
   )

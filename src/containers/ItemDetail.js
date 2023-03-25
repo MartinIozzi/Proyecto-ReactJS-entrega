@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
-import ItemCount from "../componentes/ItemCount"
-import { CustomContext } from '../CustomContext'
+import ItemCount from "../componentes/header/ItemCount"
+import { CustomContext } from '../context/CustomContext'
 import { Link } from 'react-router-dom'
 
 
@@ -26,6 +26,7 @@ const ItemDetail = ({ product }) => {
       <p>Precio: ${product.price}</p>
       {clickearBoton ? (
           <Link to="/cart">
+            <button className="boton-fin-compra">Finalizar compra</button>
           </Link>
         ) : (
           <ItemCount onAdd={onAdd} />

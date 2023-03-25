@@ -22,6 +22,7 @@
 }
 
 .contenedor_carrito{
+    text-decoration: none;
     display: flex;
     width: 150px;
     margin-top: 30px;
@@ -31,6 +32,7 @@
 }
 
 .numero{
+    
     font-size: 28px;
     align-self: center;
     color: rgb(0, 0, 0);

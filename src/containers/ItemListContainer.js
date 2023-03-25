@@ -17,10 +17,10 @@ const ItemListContainer = ({greeting}) => {
     const productsCollection = collection(db, 'productos');
     const productList = name
      ? query(productsCollection, where('category','==', name))
-     : productsCollection
+     : productsCollection;
 
     getDocs (productList)
-    .then((data)=>{
+    .then((data)=> {
       const list = data.docs.map ((product) => {
         return {
           ...product.data(),
@@ -29,15 +29,11 @@ const ItemListContainer = ({greeting}) => {
       });
       setProducts(list)(data.filter(product => product.category == name));
     }
-    ).catch(() => {setError(true)})
-  }, [])
-  /*
-  getProducts().then(Item => {
-    setProducts(Item)
-  }).catch( err => {
-    setError(false)
-  })
-  */
+    ).catch(() => {
+      setError(true)
+    })
+  }, ) //al tener un [] no me permitía hacer un enlace directo del navbar, a las categorias de cada uno
+  
 
   return (
     <>
