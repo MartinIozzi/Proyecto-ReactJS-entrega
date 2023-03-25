@@ -14,11 +14,15 @@ Link de la pagina: https://onepieceshop.netlify.app/
     - Navbar con cart
     - Catálogo
     - Detalle de producto
-    - Rutas a configurar
+
+
+* Rutas a configurar
 
     - ‘/’ navega a
     - ‘/category/:id’
     - ‘/item/:id’ navega a
+
+    
 * Links a configurar
 
 - Clickear en el brand debe navegar a ‘/’
