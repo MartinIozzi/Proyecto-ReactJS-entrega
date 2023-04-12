@@ -1,16 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CustomContext } from "../context/CustomContext";
 import { Link } from "react-router-dom";
 import './cart.css'
-import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase";
+import {collection, addDoc, getFirestore} from '@firebase/firestore'
 import Swal from 'sweetalert2'
-import ItemCount from "../componentes/header/ItemCount";
+
 
 const Cart = () => {
-  const { cart, totals } = useContext(CustomContext);
+  const { cart, totals, removeProduct, clear } = useContext(CustomContext);
+  const db = getFirestore();
+  const collectionReference = collection (db, 'orders') //apunta a la coleccion creada en firebase
 
   const alert = () => {
+    clear()
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -20,6 +22,7 @@ const Cart = () => {
     })
   }
   const alertRed = () => {
+    clear()
     Swal.fire({
       position: 'top-end',
       icon: 'error',
@@ -28,21 +31,24 @@ const Cart = () => {
       timer: 2000
     })
   }
+  const date = new Date().toLocaleString + ' ';
+  const orderObject = {
+    buyer: {
+      name: "Pepito Paredes",
+      email: "pepito@hotmail.com",
+      phone: 1168788227,
+      address: "av. corrientes 123",
+    },
+    date: date
+  }
 
-  const handlerClickSell = () => {
-    const sellCollection = collection(db, "sells");
-    addDoc(
-      sellCollection,
-      {
-        items: cart,
-        total: totals.total,
-        time: serverTimestamp(),
-      }
-    )
-    .then(result=>console.log(result.id))
-  };
+  const handleRemoveProduct = (id) => {
+    removeProduct(id)
+  }
 
+  const handleCheckout = () => {
 
+  }
 
   return (
     <>
@@ -64,6 +70,8 @@ const Cart = () => {
                       <p className="text">Cantidad: {product.quantity}</p>
                       <p className="text">Precio Total: {totals.total}</p>
                     </div>
+                    <button onClick={() => handleRemoveProduct(product.id)}>borrar</button> 
+                    {/* la funcion flecha creada arriba sirve para que la funcion no se llame a si misma muchas veces */}
                 </div>
               );
             })}
@@ -77,6 +85,14 @@ const Cart = () => {
 };
 
 const style = {
+  formulario:{
+    marginTop: 20,
+    marginLeft: 15,
+    backgroundColor:'lightblue',
+    borderRadius: 5,
+    width: 200,
+    fontSize: 20,
+  },
   boton: {
     marginLeft: 15,
     width: 300,
@@ -95,46 +111,3 @@ const style = {
 
 
 export default Cart;
-
-
-/*import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-
-
-const Cart = () => {
-const cart = ()=> {
-
-return (
-  <>
-  <div>
-  {cart.map((product) => {
-   <h1 key={product.id}>{product.title}</h1>;
-  })}
-</div>
-  <nav>
-      {
-          (cart.map((category) =>{
-              return(
-                  <Link key={category.id} style={styles.categories} to={category.route}>
-                      {category.name}
-                  </Link>
-              );
-          }))
-      }
-  </nav>
-  </>
-)
-}
-
-const styles = {
-  categories: { 
-      paddingLeft: 100,
-      marginRight: 30,
-      fontSize: 30,
-      color: "black",
-      textDecoration: "none",
-  }
-}
-}
-
-export default Cart; */

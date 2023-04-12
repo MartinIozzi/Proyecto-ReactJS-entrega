@@ -8,7 +8,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomProvider } from './context/CustomContext';
 
 
-
 function App() {
 
   const userName = 'Martin';
@@ -27,7 +26,7 @@ function App() {
         element={<ItemListContainer greeting={greeting}/>}/>
 
         <Route
-          path="/productos/:id" //lo que va despues de los : son params (en este caso el params es el id)
+          path="/productos/:id"
           element={<ItemDetailContainer />}
         />
 

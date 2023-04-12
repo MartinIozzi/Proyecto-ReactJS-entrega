@@ -5,8 +5,6 @@ import {db} from '.././firebase/firebase';
 import {getDocs, collection, query, where} from 'firebase/firestore'
 
 
-//en caso de error mostraría lo que sería la pantalla de carga a suceder
-
 const ItemListContainer = ({greeting}) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
@@ -32,7 +30,8 @@ const ItemListContainer = ({greeting}) => {
     ).catch(() => {
       setError(true)
     })
-  }, ) //al tener un [] no me permitía hacer un enlace directo del navbar, a las categorias de cada uno
+  },)
+  //al tener un [] no me permitía hacer un enlace directo del navbar, a las categorias de cada uno
   
 
   return (

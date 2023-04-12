@@ -1,0 +1,60 @@
+.fondo{
+    background-image: url(../../public/fondo-formulario.jpg);
+}
+
+.cuadros{
+    padding-left: 50px;
+}
+.cuadro-de-informacion{
+    border: solid rgb(0, 0, 0);
+    width: 95%;
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(248, 247, 253, 0.705);
+}
+
+.cuadro-de-informacion1{
+    margin: 20px;
+    padding: 20px;
+}
+
+fieldset legend{
+    text-align: center;
+    font-weight: bold;
+}
+
+.holder{
+    width: 400px;
+}
+
+.text-area{
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.boton-envio{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.datos{
+    gap: 10px;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.espacios{
+    margin-bottom: 20px;
+}
+
+.letra{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+}

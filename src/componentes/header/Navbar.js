@@ -14,7 +14,7 @@ const Navbar = ({ name }) => {
                 <div className='nav_categories'>
                 <NavCategories/>
                 </div>
-  
+
                 <Link to={'/cart'}><CartWidget/></Link>
 
                 <div>

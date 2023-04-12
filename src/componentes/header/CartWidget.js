@@ -10,10 +10,16 @@ const CartWidget = ({}) => {
     const { totals } = useContext(CustomContext);
 
     return (
+        <>
+        {
+        totals.qty > 0 && (
         <div className='contenedor_carrito'>
         <ShoppingCartIcon sx={{ fontSize: 50 }} />
         <p className='numero'>{totals.qty}</p>
         </div>
+        )
+        }
+        </>
     )
 }
 
