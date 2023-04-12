@@ -4,7 +4,7 @@ import CartWidget from './CartWidget';
 import NavCategories from './NavCategories';
 import {Link} from "react-router-dom";
 
-const Navbar = ({ name }) => {
+const Navbar = () => {
 
     return (
         <header>
@@ -19,9 +19,9 @@ const Navbar = ({ name }) => {
 
                 <div>
                     <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div className='contenedor_cuenta'>
+                        <div>
                             <AccountCircleIcon className='cuenta' sx={{ fontSize: 50 }} />
-                            <p className='saludo'>Bienvenido/a {name}</p>
+                            <p className='saludo'>Bienvenido/a {} </p>
                         </div>
                     </button>
                     <ul className="dropdown-menu bg-danger">

@@ -43,6 +43,7 @@ const Cart = () => {
           <div>
             {cart.map((product) => {
               return (
+                <>
                 <div className="estructura" key={product.id}>
                   <img className="tamano-img" src={product.img}></img>
                   <div className="general-text">
@@ -50,13 +51,15 @@ const Cart = () => {
                     <p className="text">Cantidad: {product.quantity}</p>
                     <p className="text">Precio Final: {product.price * product.quantity}</p>
                   </div>
-                  <button onClick={() => handleRemoveProduct(product.id)}>borrar</button>
                   {/* la funcion flecha creada arriba sirve para que la funcion no se llame a si misma muchas veces */}
                 </div>
+                  <button className="borrar" onClick={() => handleRemoveProduct(product.id)}>Borrar</button>
+                  <hr></hr>
+                  </>
               );
             })}
           </div>
-          <h1>Total:{totals.total}</h1>
+          <h4 className="total">Total: ${totals.total}</h4>
           <hr></hr>
           <div>
             <h3>Completa tus datos para realizar tu pedido</h3>
@@ -93,16 +96,14 @@ const Cart = () => {
                 setTimeout(() => {
                   addDoc(collectionReference, orderObject)
                     .then((response) => {
-
-
                       clear()
                       Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         title: 'Tu compra ha sido realizada',
                         text: 'Va a llegar a tu domicilio en 24 horas, el ID de tu pedido es: ' + response.id,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                       })
                     })
                   setSubmitting(false);

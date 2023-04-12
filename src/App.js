@@ -10,14 +10,13 @@ import { CustomProvider } from './context/CustomContext';
 
 function App() {
 
-  const userName = 'Martin';
   const greeting = 'Novedades';
 
   return (
     <>
     <BrowserRouter>
       <CustomProvider>
-      <Navbar name={userName} />
+      <Navbar />
       <Routes>
         <Route path='/'
           element={<ItemListContainer greeting={greeting} />} />

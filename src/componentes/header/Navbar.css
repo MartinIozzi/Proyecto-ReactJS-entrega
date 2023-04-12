@@ -41,13 +41,12 @@
 
 .saludo{
     font-size: 20px;
-    display: flex;
     width: 200px;
-    margin-left: 20px;
 }
 
-.contenedor_cuenta{
+.btn{
     margin-top: 5px;
+    margin-left: 300px;
 }
 
 .boton{

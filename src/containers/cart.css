@@ -32,3 +32,17 @@
     font-size: 25px;
     margin-left: 15px;
 }
+
+.borrar{
+    width: 200px;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    font-size: 20px;
+    margin-left: 20vh;
+}
+
+.total{    
+    margin-left: 50px;
+    width: 150px;
+    background-color: rgb(252, 128, 13);
+}
